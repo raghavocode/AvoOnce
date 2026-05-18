@@ -17,3 +17,22 @@ AvoOnce is a robust, framework-agnostic, open-source library that solves the "ex
 
 ## Architecture
 To support multiple frameworks and backends seamlessly, the project is split into a multi-module build (Maven/Gradle).
+
+```mermaid
+graph TD
+    Client((Client)) -->|HTTP Request with<br/>Idempotency-Key| Web[Web Layer]
+    
+    subgraph Framework Integrations
+        Web --> SB[avoonce-spring-boot-starter]
+        Web --> JAX[avoonce-jaxrs]
+    end
+    
+    SB --> Core[avoonce-core<br/>IdempotencyManager & SPI]
+    JAX --> Core
+    
+    subgraph Storage Implementations
+        Core -->|SPI| Caff[avoonce-caffeine<br/>In-Memory]
+        Core -->|SPI| Red[avoonce-redis<br/>Distributed]
+        Core -->|SPI| JDBC[avoonce-jdbc<br/>Relational DB]
+    end
+```
