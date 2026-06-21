@@ -15,6 +15,7 @@
     <properties>
         <caffeine.version>3.1.8</caffeine.version>
         <junit.version>5.10.2</junit.version>
+        <spring.boot.version>3.3.0</spring.boot.version>
     </properties>
 
     <modules>
@@ -24,10 +25,18 @@
         <module>idempotency-jdbc</module>
         <module>idempotency-redis</module>
         <module>idempotency-spring-boot-starter</module>
+        <module>idempotency-spring-boot-sample</module>
     </modules>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <dependency>
                 <groupId>com.github.ben-manes.caffeine</groupId>
                 <artifactId>caffeine</artifactId>
