@@ -3,6 +3,7 @@
 [![Java](https://img.shields.io/badge/Java-21%2B-blue)](https://adoptium.net/)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2%2B-brightgreen)](https://spring.io/projects/spring-boot)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Java CI with Maven](https://github.com/raghavocode/AvoOnce/actions/workflows/maven.yml/badge.svg?branch=main)](https://github.com/raghavocode/AvoOnce/actions/workflows/maven.yml)
 
 ![AvoOnce](/img/AvoOnce.png)
 
