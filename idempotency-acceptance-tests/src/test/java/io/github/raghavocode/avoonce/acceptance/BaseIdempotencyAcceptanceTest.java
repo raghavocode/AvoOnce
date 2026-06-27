@@ -1,5 +1,6 @@
-package io.github.raghavocode.avoonce.sample;
+package io.github.raghavocode.avoonce.acceptance;
 
+import io.github.raghavocode.avoonce.acceptance.dummy.PaymentController;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,13 +18,13 @@ import java.util.concurrent.CompletableFuture;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class IdempotencyIntegrationTest {
+public abstract class BaseIdempotencyAcceptanceTest {
 
     @Autowired
-    private TestRestTemplate restTemplate;
+    protected TestRestTemplate restTemplate;
 
     @Autowired
-    private PaymentController paymentController;
+    protected PaymentController paymentController;
 
     @BeforeEach
     void setUp() {
@@ -131,7 +132,7 @@ class IdempotencyIntegrationTest {
 
         // Should be rejected by IdempotencyFilter due to hash mismatch
         assertEquals(HttpStatus.UNPROCESSABLE_ENTITY, response2.getStatusCode());
-        assertTrue(response2.getBody().contains("Idempotency mismatch"));
+        assertTrue(response2.getBody() != null && response2.getBody().contains("Idempotency mismatch"));
     }
 
     @Test

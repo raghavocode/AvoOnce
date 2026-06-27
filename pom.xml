@@ -36,6 +36,7 @@
         <module>idempotency-redis</module>
         <module>idempotency-spring-boot-starter</module>
         <module>idempotency-spring-boot-sample</module>
+        <module>idempotency-acceptance-tests</module>
     </modules>
 
     <dependencyManagement>
